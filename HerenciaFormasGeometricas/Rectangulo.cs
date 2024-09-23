@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace HerenciaFormasGeometricas
 {
-    public class Rectangulo : Cuadrado
+    public class Rectangulo : Poligono
     {
+        public double Base { get; set; }
         public double Altura { get; set; }
 
-        public Rectangulo(double Base, double Altura) : base(Base) 
+        public Rectangulo(double Base, double Altura) : base(eForma.Rectangulo, 4) 
         {
             this.Base = Base;
             this.Altura = Altura;
@@ -22,9 +23,14 @@ namespace HerenciaFormasGeometricas
             return Base * Altura;
         }
 
+        public override double CalcularPerimetro()
+        {
+            return Base * 2 + Altura * 2;
+        }
+
         public override string ToString()
         {
-            return $"Rectángulo: Base = {Base}, Altrua = {Altura}, Área = {CalcularArea()}";
+            return $"{eForma.Rectangulo}: Base = {Base}, Altrua = {Altura}, Área = {CalcularArea()}, Perímetro = {CalcularPerimetro()}";
         }
     }
 }

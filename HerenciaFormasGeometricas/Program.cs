@@ -10,9 +10,13 @@ namespace HerenciaFormasGeometricas
     {
         static void Main(string[] args)
         {
-            Ejecutar();
+            
+            Diagrama diagrama = new Diagrama(PedirNumero());
+            diagrama.ToString();
+            Console.ReadKey();
         }
 
+        /*
         static void Ejecutar()
         {
             int menu;
@@ -34,7 +38,7 @@ namespace HerenciaFormasGeometricas
                         break;
                     case 3:
                         Console.WriteLine("Base y altura del triangulo: ");
-                        Triangulo triangulo = new Triangulo(PedirNumero("Base: "), PedirNumero("Altura: "));
+                        Triangulo triangulo = new Triangulo(PedirNumero("Base: "), PedirNumero("Altura: "), PedirNumero("Diagonal: "));
                         Console.WriteLine(triangulo.ToString());
                         break;
                     case 4:
@@ -78,11 +82,13 @@ Que forma quieres calcular?
             Int32.TryParse(Console.ReadLine(), out int numero);
             return numero;
         }
-
+        */
         static int PedirNumero()
         {
+            Console.WriteLine("Numero de figuras a calcular: ");
             Int32.TryParse(Console.ReadLine(), out int numero);
             return numero;
         }
+        
     }
 }

@@ -11,7 +11,7 @@ namespace HerenciaFormasGeometricas
         public double RadioMayor { get; set; }
         public double RadioMenor { get; set; }
 
-        public Elipse(double RadioMayor, double RadioMenor) :base((eForma)4)
+        public Elipse(double RadioMayor, double RadioMenor) :base(eForma.Elipse)
         {
             this.RadioMayor = RadioMayor;
             this.RadioMenor = RadioMenor;
@@ -22,9 +22,14 @@ namespace HerenciaFormasGeometricas
             return Math.PI * RadioMayor * RadioMenor;
         }
 
+        public override double CalcularPerimetro()
+        {
+            return Math.PI * (3 * (RadioMayor + RadioMenor) - Math.Sqrt((3 * RadioMayor + RadioMenor) * (RadioMayor + 3 * RadioMenor)));
+        }
+
         public override string ToString()
         {
-            return $"Elipse: Radio mayor = {RadioMayor}, Radio menor = {RadioMenor}, Área = {CalcularArea()}";
+            return $"{eForma.Elipse}: Radio mayor = {RadioMayor}, Radio menor = {RadioMenor}, Área = {CalcularArea()}, Perímetro = {CalcularPerimetro()}";
         }
     }
 }

@@ -10,21 +10,29 @@ namespace HerenciaFormasGeometricas
     {
         public double Base { get; set; }
         public double Altura { get; set; }
+        public double Diagonal { get; set; }
 
-        public Triangulo(double Base, double Altura) : base((eForma)2, 3)
+        public Triangulo(double Base, double Altura, double Diagonal) : base(eForma.Triangulo, 3)
         {
             this.Base = Base;
             this.Altura = Altura;
+            this.Diagonal = Diagonal;
         }
 
         public override double CalcularArea()
         {
-            return (Base * Altura) / 2;
+            double s = (Altura + Base + Diagonal) / 2;
+            return Math.Sqrt(s * (s - Altura) * (s - Base) * (s - Diagonal));
+        }
+
+        public override double CalcularPerimetro()
+        {
+            return Altura + Base + Diagonal;
         }
 
         public override string ToString()
         {
-            return $"Triángulo: Base = {Base}, Altura = {Altura}, Área = {CalcularArea()}";
+            return $"{eForma.Triangulo}: Base = {Base}, Altura = {Altura}, Diagonal = {Diagonal}, Área = {CalcularArea()}, Perímetro = {CalcularPerimetro()}";
         }
     }
 }

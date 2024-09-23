@@ -8,20 +8,21 @@ namespace HerenciaFormasGeometricas
 {
     public class Circulo : Elipse
     {
-        public double Radio {
+        public double Radio 
+        { 
             get { return RadioMayor; } 
-            set 
-            { 
-                RadioMayor = value; 
-                RadioMenor = value;
-            }
         }
 
         public Circulo(double Radio): base(Radio, Radio) { }
 
+        public override double CalcularPerimetro()
+        {
+            return 2 * Math.PI * Radio;
+        }
+
         public override string ToString() 
         {
-            return $"Círculo: Radio = {Radio}, Área = {CalcularArea()}";
+            return $"{eForma.Circulo}: Radio = {Radio}, Área = {CalcularArea()}, Perímetro = {CalcularPerimetro()}";
         }
     }
 }

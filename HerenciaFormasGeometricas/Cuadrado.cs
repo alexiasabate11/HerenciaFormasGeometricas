@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace HerenciaFormasGeometricas
 {
-    public class Cuadrado : Poligono
+    public class Cuadrado : Rectangulo
     {
-        public double Base { get; set; }
-        public Cuadrado(double Lado) : base((eForma)3,4)
+        public double Lado { get; set; }
+        public Cuadrado(double Lado) : base(Lado, Lado)
         {
-            this.Base = Base;
+            this.Lado = Lado;
         }
 
-        public override double CalcularArea()
+        public override double CalcularPerimetro()
         {
-            return Base * Base;
+            return Lado * 4;
         }
 
         public override string ToString()
         {
-            return $"Cuadrado: Lado = {Base}, Área = {CalcularArea()}";
+            return $"{eForma.Cuadrado}: Lado = {Lado}, Área = {CalcularArea()}, Perímetro = {CalcularPerimetro()}";
         }
     }
 }

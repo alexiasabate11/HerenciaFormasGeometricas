@@ -12,7 +12,8 @@ namespace HerenciaFormasGeometricas
         Rectangulo,
         Triangulo,
         Cuadrado,
-        Elipse
+        Elipse,
+        Rombo
     }
     public class Forma
     {
@@ -24,6 +25,11 @@ namespace HerenciaFormasGeometricas
         }
 
         public virtual double CalcularArea()
+        {
+            return 0;
+        }
+
+        public virtual double CalcularPerimetro()
         {
             return 0;
         }
